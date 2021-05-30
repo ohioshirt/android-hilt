@@ -38,7 +38,7 @@ import androidx.fragment.app.viewModels
 class ButtonsFragment : Fragment() {
     @Inject
     lateinit var navigator: AppNavigator
-    private val viewModel by activityViewModels<MainViewModel>()
+    private val viewModel by viewModels<MainViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,

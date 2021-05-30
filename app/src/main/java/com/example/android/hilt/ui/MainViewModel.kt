@@ -11,7 +11,6 @@ class MainViewModel @ViewModelInject constructor(
     @InMemoryLogger
     private val logger: LoggerDataSource,
     private val navigator: AppNavigator
-//    private val activity: FragmentActivity
 ) : ViewModel() {
     fun addLog(msg: String) {
         logger.addLog(msg)
