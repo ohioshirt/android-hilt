@@ -14,8 +14,8 @@ class LoggerInMemoryDataSource @Inject constructor() : LoggerDataSource {
         logs.add(Log(msg, System.currentTimeMillis()))
     }
 
-    override fun getAllLogs(callbatk: (List<Log>) -> Unit) {
-        callbatk(logs)
+    override fun getAllLogs(callback: (List<Log>) -> Unit) {
+        callback(logs)
     }
 
     override fun removeLogs() {

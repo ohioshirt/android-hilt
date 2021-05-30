@@ -22,25 +22,23 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.ViewModelProvider
 import com.example.android.hilt.R
-import com.example.android.hilt.data.LoggerDataSource
-import com.example.android.hilt.di.InMemoryLogger
 import com.example.android.hilt.navigator.AppNavigator
 import com.example.android.hilt.navigator.Screens
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
+import androidx.fragment.app.viewModels
 
 /**
  * Fragment that displays buttons whose interactions are recorded.
  */
 @AndroidEntryPoint
 class ButtonsFragment : Fragment() {
-
-    @InMemoryLogger
-    @Inject
-    lateinit var logger: LoggerDataSource
     @Inject
     lateinit var navigator: AppNavigator
+    private val viewModel by activityViewModels<MainViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -52,15 +50,15 @@ class ButtonsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         view.findViewById<Button>(R.id.button1).setOnClickListener {
-            logger.addLog("Interaction with 'Button 1'")
+            viewModel.addLog("Interaction with 'Button 1'")
         }
 
         view.findViewById<Button>(R.id.button2).setOnClickListener {
-            logger.addLog("Interaction with 'Button 2'")
+            viewModel.addLog("Interaction with 'Button 2'")
         }
 
         view.findViewById<Button>(R.id.button3).setOnClickListener {
-            logger.addLog("Interaction with 'Button 3'")
+            viewModel.addLog("Interaction with 'Button 3'")
         }
 
         view.findViewById<Button>(R.id.all_logs).setOnClickListener {
@@ -68,7 +66,7 @@ class ButtonsFragment : Fragment() {
         }
 
         view.findViewById<Button>(R.id.delete_logs).setOnClickListener {
-            logger.removeLogs()
+            viewModel.removeLogs()
         }
     }
 }
