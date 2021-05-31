@@ -42,7 +42,7 @@ import javax.inject.Inject
 class LogsFragment : Fragment() {
 //    @Inject
 //    lateinit var viewModelFactory: ViewModelProvider.Factory
-    val viewMode: MainViewModel by activityViewModels<MainViewModel>()// { viewModelFactory }
+    val viewModel: MainViewModel by activityViewModels<MainViewModel>()// { viewModelFactory }
 //    lateinit var logger: LoggerDataSource
     @Inject
     lateinit var dateFormatter: DateFormatter
@@ -70,13 +70,13 @@ class LogsFragment : Fragment() {
     override fun onResume() {
         super.onResume()
 
-//        logger.getAllLogs { logs ->
-//            recyclerView.adapter =
-//                LogsViewAdapter(
-//                    logs,
-//                    dateFormatter
-//                )
-//        }
+        viewModel.getAllLogs { logs ->
+            recyclerView.adapter =
+                LogsViewAdapter(
+                    logs,
+                    dateFormatter
+                )
+        }
     }
 }
 
