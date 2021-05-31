@@ -40,9 +40,7 @@ import javax.inject.Inject
  */
 @AndroidEntryPoint
 class LogsFragment : Fragment() {
-//    @Inject
-//    lateinit var viewModelFactory: ViewModelProvider.Factory
-    val viewModel: MainViewModel by activityViewModels<MainViewModel>()// { viewModelFactory }
+    val viewModel: LogsViewModel by activityViewModels()
 //    lateinit var logger: LoggerDataSource
     @Inject
     lateinit var dateFormatter: DateFormatter

@@ -6,7 +6,6 @@ import com.example.android.hilt.data.LoggerDataSource
 import com.example.android.hilt.di.InMemoryLogger
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
-import javax.inject.Singleton
 
 @HiltViewModel
 class LogsViewModel @Inject constructor(

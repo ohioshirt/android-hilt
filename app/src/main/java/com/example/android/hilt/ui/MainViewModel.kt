@@ -20,10 +20,6 @@ class MainViewModel @Inject constructor(
         logger.addLog(msg)
     }
 
-    fun getAllLogs(callback: (List<Log>) -> Unit) {
-        logger.getAllLogs(callback)
-    }
-
     fun removeLogs() {
         logger.removeLogs()
     }
