@@ -24,6 +24,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.example.android.hilt.R
 import com.example.android.hilt.data.Log
@@ -38,10 +40,10 @@ import javax.inject.Inject
  */
 @AndroidEntryPoint
 class LogsFragment : Fragment() {
-
-    @InMemoryLogger
-    @Inject
-    lateinit var logger: LoggerDataSource
+//    @Inject
+//    lateinit var viewModelFactory: ViewModelProvider.Factory
+    val viewMode: MainViewModel by activityViewModels<MainViewModel>()// { viewModelFactory }
+//    lateinit var logger: LoggerDataSource
     @Inject
     lateinit var dateFormatter: DateFormatter
 
@@ -68,13 +70,13 @@ class LogsFragment : Fragment() {
     override fun onResume() {
         super.onResume()
 
-        logger.getAllLogs { logs ->
-            recyclerView.adapter =
-                LogsViewAdapter(
-                    logs,
-                    dateFormatter
-                )
-        }
+//        logger.getAllLogs { logs ->
+//            recyclerView.adapter =
+//                LogsViewAdapter(
+//                    logs,
+//                    dateFormatter
+//                )
+//        }
     }
 }
 

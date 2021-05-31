@@ -4,7 +4,6 @@ import dagger.hilt.android.scopes.ActivityScoped
 import java.util.*
 import javax.inject.Inject
 
-@ActivityScoped
 class LoggerInMemoryDataSource @Inject constructor() : LoggerDataSource {
 
     @JvmSuppressWildcards

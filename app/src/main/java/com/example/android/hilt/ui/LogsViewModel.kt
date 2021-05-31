@@ -1,0 +1,14 @@
+package com.example.android.hilt.ui
+
+import androidx.lifecycle.ViewModel
+import com.example.android.hilt.data.LoggerDataSource
+import com.example.android.hilt.di.InMemoryLogger
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
+
+@HiltViewModel
+class LogsViewModel @Inject constructor(
+    @InMemoryLogger
+    private val logger: LoggerDataSource
+) : ViewModel() {
+}
