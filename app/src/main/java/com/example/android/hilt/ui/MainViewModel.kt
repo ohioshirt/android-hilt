@@ -8,6 +8,7 @@ import com.example.android.hilt.di.InMemoryLogger
 import com.example.android.hilt.navigator.AppNavigator
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
+import javax.inject.Singleton
 
 @HiltViewModel
 class MainViewModel @Inject constructor(

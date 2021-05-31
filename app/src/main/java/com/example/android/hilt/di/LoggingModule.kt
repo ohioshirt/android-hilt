@@ -33,6 +33,17 @@ abstract class LoggingDatabaseModule {
     abstract fun bindDatabaseLogger(impl: LoggerLocalDataSource): LoggerDataSource
 }
 
+@InstallIn(SingletonComponent::class)
+@Module
+class LoggingSingletonInMemoryModule {
+    @InMemoryLogger
+    @Singleton
+    @Provides
+    fun provideInMemoryLogger(impl: LoggerInMemoryDataSource): LoggerDataSource {
+        return LoggerInMemoryDataSource()
+    }
+}
+
 @InstallIn(ActivityComponent::class)
 @Module
 class LoggingInMemoryModule {
@@ -42,15 +53,6 @@ class LoggingInMemoryModule {
     fun provideInMemoryLogger(impl: LoggerInMemoryDataSource): LoggerDataSource {
         return LoggerInMemoryDataSource()
     }
-}
-
-@InstallIn(ViewModelComponent::class)
-@Module
-abstract class LogginIntMemoriVMModule {
-    @InMemoryLogger
-    @ViewModelScoped
-    @Binds
-    abstract fun bindInMemoryLogger(impl: LoggerInMemoryDataSource): LoggerDataSource
 }
 
 @InstallIn(FragmentComponent::class)
